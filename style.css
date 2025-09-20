@@ -30,11 +30,11 @@ html, body {
 }
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('/assets/new_fonts/montserrat-variablefont.ttf') format('truetype supports variations'),
-		url('/assets/new_fonts/montserrat-variablefont.ttf') format('truetype-variations');
-	font-weight: 400 900;
-	font-stretch: 25% 151%;
+	font-family: 'Raleway';
+	src: url('assets/font/Raleway-VariableFont_wght.ttf') format('truetype supports variations'),
+		url('assets/font/Raleway-VariableFont_wght.ttf') format('truetype-variations');
+	font-weight: 100 900;
+	font-stretch: normal;
 	font-display: swap;
 }
 
@@ -94,11 +94,10 @@ html, body {
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	color: var(--color-black);
 	font-size: 1rem;
 	background-color: #fff;
-	padding-top: 112px;
 	margin-top: 0;
 }
 
@@ -180,9 +179,12 @@ small, .small {
 	height: 60px;
 }
 .header-company {
-	margin-left: 8px;
+	margin-left: 2px;
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 28px;
+	color: #313131;
+	align-self: flex-end;
+	margin-bottom: 2px;
 }
 .logo-footer {
 	height: 70px;
@@ -497,7 +499,7 @@ body.body-home {
 /*header*/
 
 .header {
-	background-color: #f2f2f2;
+	background-color: #fafafa !important;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -508,7 +510,7 @@ body.body-home {
 .header-spacer { display: none; }
 
 @media (max-width: 575.98px) {
-	body { padding-top: 64px; }
+
 }
 .header.is-sticky {
 	position: fixed;
@@ -521,14 +523,14 @@ body.body-home {
 .header-bar {
 	display: flex;
 	align-items: center;
-	gap: 16px;
+	gap: 8px;
 }
 .header-bar .logo-header {
 	flex: 0 0 auto;
 }
 .header-bar .header-phone {
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: 0;
 }
 .header-top {
 	padding-top: 28px;
@@ -552,6 +554,7 @@ body.body-home {
 	font-weight: 700;
 	text-decoration: none;
 	color: #313131;
+	font-family: 'Montserrat', sans-serif;
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="%23313131" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 14.1v2.5a1.7 1.7 0 0 1-1.85 1.7 16.5 16.5 0 0 1-7.2-2.56 16.3 16.3 0 0 1-5-5A16.5 16.5 0 0 1 1.3 3.2 1.7 1.7 0 0 1 3 1.5h2.5A1.7 1.7 0 0 1 7.2 3a15 15 0 0 0 .47 2.1 1.7 1.7 0 0 1-.38 1.7L6.6 7.3a13.3 13.3 0 0 0 5.8 5.8l.47-1a1.7 1.7 0 0 1 1.7-.38c.68.21 1.39.37 2.1.47A1.7 1.7 0 0 1 18 14.1z"/></svg>');
 	background-repeat: no-repeat;
 	background-position: left center;
@@ -628,15 +631,32 @@ body.body-home {
 }
 
 .banner {
-	padding-top: 203px;
-	background-image: url(/assets/new_img/bg-banner-home.webp);
-	background-repeat: no-repeat;
-	background-position: center;
+    padding: 0;
+    position: relative;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0.1) 100%),
+      url(assets/img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    z-index: -1;
 }
 .banner-title {
 	margin-bottom: 32px;
-	font-size: 39px;
-	font-weight: 800;
+	font-size: 42px;
+	font-weight: bold;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	letter-spacing: -0.5px;
 }
 .banner-content {
 	padding-top: 16px;
@@ -656,6 +676,7 @@ body.body-home {
 .banner-lead {
 	margin-bottom: 16px;
 	font-size: 16px;
+	font-weight: 600;
 	line-height: 1.6;
 }
 .benefits-list li {
@@ -1891,17 +1912,22 @@ body.body-home {
 	}
 	.header-phone {
 		margin-right: unset;
-		font-size: 14px;
-		padding-left: 26px;
-		background-size: 18px 18px;
-		line-height: 2;
+	}
+	.header-company {
+		font-size: 18px;
+		margin-left: 1px;
+		margin-bottom: 1px;
 	}
 	.header-bar {
 		padding-top: 6px !important;
 		padding-bottom: 6px !important;
+		gap: 4px;
 	}
 	.banner {
-		padding-top: 73px;
+		padding: 0;
+	}
+	.banner::before {
+		background-position: 70% center;
 	}
 	.banner-title {
 		margin-bottom: 16px;
@@ -1929,7 +1955,8 @@ body.body-home {
 	}
 	.banner .col-lg-8.col-xl-6,
 	.banner .col-lg-10.col-xl-8 {
-		padding: 0;
+		padding-left: 15px;
+		padding-right: 15px;
 	}
 	.products .card-body {
 		padding: 16px 8px;
@@ -2230,7 +2257,7 @@ body.body-home {
 		margin-right: unset;
 	}
 	.banner {
-		padding-top: 150px;
+		padding: 0;
 	}
 	.banner-title {
 		font-size: 38px;
@@ -2345,7 +2372,7 @@ body.body-home {
 		margin-right: unset;
 	}
 	.banner {
-		padding-top: 150px;
+		padding: 0;
 	}
 	.banner .card {
 		padding: 16px;
